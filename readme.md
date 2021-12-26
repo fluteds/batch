@@ -1,6 +1,6 @@
 ## Batch Scripts
 
-These are my collection of batchfiles and autohotkey scripts, some written by me, some written by others and modified. If any of the scripts don't work, run the script with Administrator rights. You must have autohotkey installed to run the AHK scripts.
+These are my collection of batch files and AutoHotKey scripts, some written by me, some written by others and modified. If any of the scripts don't work, run the script with Administrator rights. You must have AutoHotKey installed to run the AHK scripts.
 
 ````cmd
        -      _______                               '  *      '

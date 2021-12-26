@@ -1,4 +1,4 @@
-// Sends a POST url request to bad-domains.walshy.dev/report
+::: Sends a POST url request to bad-domains.walshy.dev/report
 
 @echo off
 
