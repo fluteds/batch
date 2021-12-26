@@ -33,7 +33,7 @@ Function
 - Volume - AHK script that changes the current volume using `Shift` `+` Numkeys `+` and `-`
 - Trash - AHK script that empties the recycle bin using `Win` `+` `Del`
 - Suspend - AHK snippet that suspends running AHK scripts using `Win` `+` `Scrolllock` - must have the snippet inserted into any scripts you want to suspend in order to work
-- Auto Correct - AHK that autocorrects words - use `Win` `+` `H` to add new words
+- Auto Correct - AHK that auto corrects words - use `Win` `+` `H` to add new words
 - Restart Task - Restarts Windows File Manager
 - Search Clipboard - Uses copied text from the clipboard and searches it - uses `Ctrl`, `Shift` `+` `C`
 
@@ -44,6 +44,8 @@ Misc
 - Ytdl-basic - Paste a link and download of YouTube videos via YouTube-dl
 - Download mp3 - Converts a YouTube video to mp3
 - Keep on Top - Keeps the current window on top of the other windows - uses `Ctrl` `+` `Space`
+- Hug Cynthia - Hug Cynthia using a `GET` request to `cynthia.rest`
+- Bad Domain - Submit a `POST` Discord scam domain request to `bad-domains.walshy.dev/report`
 
 Terminal Art
 
