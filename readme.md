@@ -46,6 +46,7 @@ Misc
 - Keep on Top - Keeps the current window on top of the other windows - uses `Ctrl` `+` `Space`
 - Hug Cynthia - Hug Cynthia using a `GET` request to `cynthia.rest`
 - Bad Domain - Submit a `POST` Discord scam domain request to `bad-domains.walshy.dev/report`
+- Printer Queue - Opens the Printer Queue
 
 Terminal Art
 
