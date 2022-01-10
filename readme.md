@@ -36,6 +36,8 @@ Function
 - Auto Correct - AHK that auto corrects words - use `Win` `+` `H` to add new words
 - Restart Task - Restarts Windows File Manager
 - Search Clipboard - Uses copied text from the clipboard and searches it - uses `Ctrl`, `Shift` `+` `C`
+- Check Port - Lists all the currently available ports on the PC
+- Check Connection - Pings `google.com` to test connection
 
 Misc
 
@@ -46,6 +48,7 @@ Misc
 - Hug Cynthia - Hug Cynthia using a `GET` request to `cynthia.rest`
 - Bad Domain - Submit a `POST` Discord scam domain request to `bad-domains.walshy.dev/report`
 - Printer Queue - Opens the Printer Queue
+- Show Wifi Password - Runs `netsh wlan show profiles` and grabs the password for a previously connected connection
 
 Terminal Art
 
@@ -58,6 +61,7 @@ Windows 10
 
 ⚠️ Do not run any of the following Windows without checking the code first - if you break something it is not my fault. A lot of these change something about the system and can cause issues.
 
+- Reset Windows Updates - Resets Windows Update Components
 - Advanced Explorer Settings -This changes more than a dozen File Explorer related settings on Windows 10 that turn of animations, enable menus, or turn off things like Toasts
 - Disable Automatic App Updates - Turns off automatic updates for Windows Store applications
 - Disable Automatic Windows Updates - Turns off automatic updates for the Windows 10 operating system itself
