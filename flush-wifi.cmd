@@ -10,8 +10,8 @@ ipconfig /renew
 ipconfig /flushdns
 
 echo Process Done!
-echo Continuing will restart your PC
-choice /C:YN /M:"Do you want to continue?"
+echo For the best results, please restart your PC
+choice /C:YN /M:"Do you want to restart?"
 IF ERRORLEVEL ==1 GOTO Restart
 IF ERRORLEVEL ==2 GOTO ExitBat
 

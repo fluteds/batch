@@ -39,7 +39,6 @@ Function
 
 Misc
 
-- Streamlink - Open a Twitch Stream in a VLC Video Player via Streamlink - replacement for `st`
 - Ytdl - Downloads a YouTube video via YouTube-dl and has a tonne of customizable options
 - Ytdl-basic - Paste a link and download of YouTube videos via YouTube-dl
 - Download mp3 - Converts a YouTube video to mp3
