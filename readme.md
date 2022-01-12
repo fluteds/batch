@@ -49,6 +49,7 @@ Misc
 - Bad Domain - Submit a `POST` Discord scam domain request to `bad-domains.walshy.dev/report`
 - Printer Queue - Opens the Printer Queue
 - Show Wifi Password - Runs `netsh wlan show profiles` and grabs the password for a previously connected connection
+- Wifi Hotspot - Creates and manages Wifi Hotspots from the device
 
 Terminal Art
 
