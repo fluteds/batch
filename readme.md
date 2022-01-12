@@ -38,6 +38,7 @@ Function
 - Search Clipboard - Uses copied text from the clipboard and searches it - uses `Ctrl`, `Shift` `+` `C`
 - Check Port - Lists all the currently available ports on the PC
 - Check Connection - Pings `google.com` to test connection
+- Sleep in 30 Minutes - Puts the PC in Sleep mode 30 minutes after the batch file is ran
 
 Misc
 
