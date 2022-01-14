@@ -1,9 +1,12 @@
-::Check port
-@echo OFF
+@echo off
+
 title Check port
+
 color 0A
 cls
-echo please wait ...
+
+::Check port
+echo Please wait ...
 netstat -ano
 tasklist|findstr "9999"
 pause >nul

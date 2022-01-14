@@ -1,4 +1,4 @@
-@ECHO OFF
+@echo off
 color 0A
 echo 
                                    
@@ -15,61 +15,61 @@ echo
 
 for /f "delims=: tokens=*" %%A in ('findstr /b ::: "%~f0"') do @echo(%%A
 
-ECHO.
-ECHO This is the advanced YouTube-dl Batchfile. 
-ECHO Run ytdl-basic.cmd for a simple download experience.
-ECHO.
+echo.
+echo This is the advanced YouTube-dl Batchfile. 
+echo Run ytdl-basic.cmd for a simple download experience.
+echo.
 SET /P URL="[Enter video URL] "
-ECHO.
+echo.
 goto formatList
 
 :formatList
-ECHO.
+echo.
 YouTube-dl -F %URL%
-ECHO.
-ECHO ======================================================================================================================
+echo.
+echo ======================================================================================================================
 goto selection
 
 
 :selection
-ECHO.
-ECHO 1) Video + Audio
-ECHO 2) Single format (Audio only / Video only)
-ECHO.
+echo.
+echo 1) Video + Audio
+echo 2) Single format (Audio only / Video only)
+echo.
 SET /P option="Select option: "
 if %option% == 1 (goto download)
 if %option% == 2 (goto downloadSingle)
-ECHO.
-ECHO Unknown value
-ECHO.
-ECHO ======================================================================================================================
+echo.
+echo Unknown value
+echo.
+echo ======================================================================================================================
 goto selection
 
 :download
-ECHO.
+echo.
 SET /P video="Select video format: "
 SET /P audio="Select audio format: "
-ECHO.
-ECHO ======================================================================================================================
-ECHO.
+echo.
+echo ======================================================================================================================
+echo.
 YouTube-dl -o D:\Downloads/%%(title)s.%%(ext)s -f %video%+%audio% -i --ignore-config --hls-prefer-native %URL%
-ECHO.
-ECHO ======================================================================================================================
-ECHO.
-ECHO Done!
-PAUSE
+echo.
+echo ======================================================================================================================
+echo.
+echo Done!
+pause
 EXIT
 
 :downloadSingle
-ECHO.
+echo.
 SET /P format="Select format: "
-ECHO.
-ECHO ======================================================================================================================
-ECHO.
+echo.
+echo ======================================================================================================================
+echo.
 YouTube-dl -o D:\Downloads/%%(title)s.%%(ext)s -f %format% -i --ignore-config --hls-prefer-native %URL%
-ECHO.
-ECHO ======================================================================================================================
-ECHO.
-ECHO Done!
-PAUSE
+echo.
+echo ======================================================================================================================
+echo.
+echo Done!
+pause
 EXIT

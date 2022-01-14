@@ -1,5 +1,5 @@
 ::Light effect
-@echo OFF
+@echo off
 title Light effect
 :flash
 ping localhost -n 1 >nul

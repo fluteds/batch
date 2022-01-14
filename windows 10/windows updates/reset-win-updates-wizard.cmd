@@ -1,30 +1,21 @@
-:: ==================================================================================
-:: NAME:	Reset Windows Update Tool.
-:: DESCRIPTION:	This script reset the Windows Update Components.
-:: AUTHOR:	Manuel Gil.
-:: VERSION:	10.5.4.1 - Date: 11/02/2020
-:: ==================================================================================
-
+:: Author:	Manuel Gil
 
 :: Set console.
 :: void mode();
-:: /************************************************************************************/
+
 :mode
 	echo off
 	title Reset Windows Update Tool.
 	mode con cols=90 lines=36
-	color 17
+::	color 17
 	cls
 
 	goto getValues
 goto :eof
-:: /************************************************************************************/
-
 
 :: Print Top Text.
 ::		@param - text = the text to print (%*).
 :: void print(string text);
-:: /*************************************************************************************/
 :print
 	cls
 	echo.
@@ -34,8 +25,6 @@ goto :eof
 	echo.%*
 	echo.
 goto :eof
-:: /*************************************************************************************/
-
 
 :: Add Value in the Registry.
 ::		@param - key = the key or entry to be added (%~1).
@@ -43,16 +32,12 @@ goto :eof
 ::				type = the type for the registry entry (%~3).
 ::				data = the data for the new registry entry (%~4).
 :: void addReg(string key, string value, string type, string data);
-:: /*************************************************************************************/
 :addReg
 	reg add "%~1" /v "%~2" /t "%~3" /d "%~4" /f
 goto :eof
-:: /*************************************************************************************/
-
 
 :: Load the system values.
 :: void getValues();
-:: /************************************************************************************/
 :getValues
 	for /f "tokens=4 delims=[] " %%a in ('ver') do set version=%%a
 
@@ -139,18 +124,13 @@ goto :eof
 	echo.    Can this using a business or test version.
 	echo.
 	echo.    if not, verify that your system has the correct security fix.
-
 	echo.
-
 	echo.Press any key to continue . . .
 	pause>nul
 goto :eof
-:: /************************************************************************************/
-
 
 :: Checking for Administrator elevation.
 :: void permission();
-:: /************************************************************************************/
 :permission
 	openfiles>nul 2>&1
 
@@ -167,12 +147,11 @@ goto :eof
 	echo.Press any key to continue . . .
 	pause>nul
 goto :eof
-:: /************************************************************************************/
+
 
 
 :: Terms.
 :: void terms();
-:: /*************************************************************************************/
 :terms
 	call :print Terms and Conditions of Use.
 
@@ -201,12 +180,9 @@ goto :eof
 		goto menu
 	)
 goto :eof
-:: /*************************************************************************************/
-
 
 :: Menu of tool.
 :: void menu();
-:: /*************************************************************************************/
 :menu
 	call :print This tool reset the Windows Update Components.
 
@@ -290,12 +266,9 @@ goto :eof
 
 	goto menu
 goto :eof
-:: /*************************************************************************************/
-
 
 :: Open system protection.
 :: void sysProtection();
-:: /*************************************************************************************/
 :sysProtection
 	call :print Opening the system protection.
 
@@ -309,14 +282,12 @@ goto :eof
 		pause>nul
 	)
 goto :eof
-:: /*************************************************************************************/
-
 
 :: Run the reset Windows Update components.
 :: void components();
-:: /*************************************************************************************/
+
 :components
-	:: ----- Stopping the Windows Update services -----
+	::  Stopping the Windows Update services 
 	call :print Stopping the Windows Update services.
 	net stop bits
 
@@ -332,7 +303,7 @@ goto :eof
 	call :print Canceling the Windows Update process.
 	taskkill /im wuauclt.exe /f
 
-	:: ----- Checking the services status -----
+	:: Checking the services status
 	call :print Checking the services status.
 
 	sc query bits | findstr /I /C:"STOPPED"
@@ -380,13 +351,13 @@ goto :eof
 		goto :eof
 	)
 
-	:: ----- Delete the qmgr*.dat files -----
+	:: Delete the qmgr*.dat files
 	call :print Deleting the qmgr*.dat files.
 
 	del /s /q /f "%ALLUSERSPROFILE%\Application Data\Microsoft\Network\Downloader\qmgr*.dat"
 	del /s /q /f "%ALLUSERSPROFILE%\Microsoft\Network\Downloader\qmgr*.dat"
 
-	:: ----- Renaming the softare distribution folders backup copies -----
+	:: Renaming the softare distribution folders backup copies
 	call :print Deleting the old software distribution backup copies.
 
 	cd /d %SYSTEMROOT%
@@ -432,7 +403,7 @@ goto :eof
 		ren "%SYSTEMROOT%\WindowsUpdate.log" WindowsUpdate.log.bak
 	)
 
-	:: ----- Reset the BITS service and the Windows Update service to the default security descriptor -----
+	:: Reset the BITS service and the Windows Update service to the default security descriptor 
 	call :print Reset the BITS service and the Windows Update service to the default security descriptor.
 
 	sc.exe sdset wuauserv D:(A;CI;CCLCSWRPLORC;;;AU)(A;;CCDCLCSWRPWPDTLOCRSDRCWDWO;;;BA)(A;;CCDCLCSWRPWPDTLOCRSDRCWDWO;;;SY)S:(AU;FA;CCDCLCSWRPWPDTLOSDRCWDWO;;;WD)
@@ -440,7 +411,7 @@ goto :eof
 	sc.exe sdset cryptsvc D:(A;;CCLCSWRPWPDTLOCRRC;;;SY)(A;;CCDCLCSWRPWPDTLOCRSDRCWDWO;;;BA)(A;;CCLCSWLOCRRC;;;IU)(A;;CCLCSWLOCRRC;;;SU)(A;;CCLCSWRPWPDTLOCRRC;;;SO)(A;;CCLCSWLORC;;;AC)(A;;CCLCSWLORC;;;S-1-15-3-1024-3203351429-2120443784-2872670797-1918958302-2829055647-4275794519-765664414-2751773334)
 	sc.exe sdset trustedinstaller D:(A;CI;CCDCLCSWRPWPDTLOCRSDRCWDWO;;;SY)(A;;CCDCLCSWRPWPDTLOCRRC;;;BA)(A;;CCLCSWLOCRRC;;;IU)(A;;CCLCSWLOCRRC;;;SU)S:(AU;SAFA;WDWO;;;BA)
 
-	:: ----- Reregister the BITS files and the Windows Update files -----
+	::  Reregister the BITS files and the Windows Update files 
 	call :print Reregister the BITS files and the Windows Update files.
 
 	cd /d %SYSTEMROOT%\system32
@@ -481,11 +452,11 @@ goto :eof
 	regsvr32.exe /s muweb.dll
 	regsvr32.exe /s wuwebv.dll
 
-	:: ----- Resetting Winsock -----
+	::  Resetting Winsock 
 	call :print Resetting Winsock.
 	netsh winsock reset
 
-	:: ----- Resetting WinHTTP Proxy -----
+	::  Resetting WinHTTP Proxy 
 	call :print Resetting WinHTTP Proxy.
 
 	if %family% EQU 5 (
@@ -494,7 +465,7 @@ goto :eof
 		netsh winhttp reset proxy
 	)
 
-	:: ----- Set the startup type as automatic -----
+	::  Set the startup type as automatic 
 	call :print Resetting the services as automatics.
 	sc.exe config wuauserv start= auto
 	sc.exe config bits start= delayed-auto
@@ -502,7 +473,7 @@ goto :eof
 	sc.exe config TrustedInstaller start= demand
 	sc.exe config DcomLaunch start= auto
 
-	:: ----- Starting the Windows Update services -----
+	::  Starting the Windows Update services 
 	call :print Starting the Windows Update services.
 	net start bits
 
@@ -518,18 +489,15 @@ goto :eof
 	call :print Starting the Windows Update services.
 	net start DcomLaunch
 
-	:: ----- End process -----
+	::  End process 
 	call :print The operation completed successfully.
 
 	echo.Press any key to continue . . .
 	pause>nul
 goto :eof
-:: /*************************************************************************************/
-
 
 :: Delete temporary files in Windows.
 :: void temp();
-:: /*************************************************************************************/
 :temp
 	call :print Deleting the temporary files in Windows.
 
@@ -540,23 +508,17 @@ goto :eof
 	echo.Press any key to continue . . .
 	pause>nul
 goto :eof
-:: /*************************************************************************************/
-
 
 :: Open the Internet Explorer options.
 :: void iOptions();
-:: /*************************************************************************************/
 :iOptions
 	call :print Opening the Internet Explorer options.
 
 	start InetCpl.cpl
 goto :eof
-:: /*************************************************************************************/
-
 
 :: Check and repair errors on the disk.
 :: void chkdsk();
-:: /*************************************************************************************/
 :chkdsk
 	call :print Check the file system and file system metadata of a volume for logical and physical errors (CHKDSK.exe).
 
@@ -574,12 +536,9 @@ goto :eof
 	echo.Press any key to continue . . .
 	pause>nul
 goto :eof
-:: /*************************************************************************************/
-
 
 :: Scans all protected system files.
 :: void sfc();
-:: /*************************************************************************************/
 :sfc
 	call :print Scan your system files and to repair missing or corrupted system files (SFC.exe).
 
@@ -601,12 +560,9 @@ goto :eof
 	echo.Press any key to continue . . .
 	pause>nul
 goto :eof
-:: /*************************************************************************************/
-
 
 :: Scan the image to check for corruption.
 :: void dism1();
-:: /*************************************************************************************/
 :dism1
 	call :print Scan the image for component store corruption (The DISM /ScanHealth argument).
 
@@ -630,12 +586,9 @@ goto :eof
 	echo.Press any key to continue . . .
 	pause>nul
 goto :eof
-:: /*************************************************************************************/
-
 
 :: Check the detected corruptions.
 :: void dism2();
-:: /*************************************************************************************/
 :dism2
 	call :print Check whether the image has been flagged as corrupted by a failed process and whether the corruption can be repaired (The DISM /CheckHealth argument).
 
@@ -659,12 +612,9 @@ goto :eof
 	echo.Press any key to continue . . .
 	pause>nul
 goto :eof
-:: /*************************************************************************************/
-
 
 :: Repair the Windows image.
 :: void dism3();
-:: /*************************************************************************************/
 :dism3
 	call :print Scan the image for component store corruption, and then perform repair operations automatically (The DISM /RestoreHealth argument).
 
@@ -688,12 +638,9 @@ goto :eof
 	echo.Press any key to continue . . .
 	pause>nul
 goto :eof
-:: /*************************************************************************************/
-
 
 :: Clean up the superseded components.
 :: void dism4();
-:: /*************************************************************************************/
 :dism4
 	call :print Clean up the superseded components and reduce the size of the component store (The DISM /StartComponentCleanup argument).
 
@@ -717,12 +664,9 @@ goto :eof
 	echo.Press any key to continue . . .
 	pause>nul
 goto :eof
-:: /*************************************************************************************/
-
 
 :: Change invalid values.
 :: void regedit();
-:: /*************************************************************************************/
 :regedit
 	for /f "tokens=1-5 delims=/., " %%a in ("%date%") do (
 		set now=%%a%%b%%c%%d%time:~0,2%%time:~3,2%
@@ -732,7 +676,7 @@ goto :eof
 		mkdir "%USERPROFILE%\Desktop\Backup\Regedit\%now%\"
 	)
 
-	:: ----- Create a backup of the Registry -----
+	::  Create a backup of the Registry 
 	call :print Making a backup of the Registry in: %USERPROFILE%\Desktop\Backup\Regedit\%now%\
 
 	if exist "%USERPROFILE%\Desktop\Backup\Regedit\%now%\HKLM.reg" (
@@ -752,7 +696,7 @@ goto :eof
 		reg Export HKCC "%USERPROFILE%\Desktop\Backup\Regedit\%now%\HKCC.reg"
 	)
 
-	:: ----- Checking backup -----
+	::  Checking backup 
 	call :print Checking the backup.
 
 	if not exist "%USERPROFILE%\Desktop\Backup\Regedit\%now%\HKLM.reg" (
@@ -768,7 +712,7 @@ goto :eof
 		echo.
 	)
 
-	:: ----- Delete keys in the Registry -----
+	::  Delete keys in the Registry 
 	call :print Deleting values in the Registry.
 
 	reg delete "HKCU\Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo" /f
@@ -805,7 +749,7 @@ goto :eof
 	reg delete "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Reporting" /v SamplingValue /f
 	reg delete "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Services" /v ReregisterAuthorizationCab /f
 
-	:: ----- Add keys in the Registry -----
+	::  Add keys in the Registry 
 	call :print Adding values in the Registry.
 
 	set key=HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX
@@ -856,20 +800,17 @@ goto :eof
 	call :addReg "%key%\ws.microsoft.com" "http" "REG_DWORD" "2"
 	call :addReg "%key%\ws.microsoft.com" "https" "REG_DWORD" "2"
 
-	:: ----- End process -----
+	::  End process 
 	call :print The operation completed successfully.
 
 	echo.Press any key to continue . . .
 	pause>nul
 goto :eof
-:: /*************************************************************************************/
-
 
 :: Reset Winsock setting.
 :: void winsock();
-:: /*************************************************************************************/
 :winsock
-	:: ----- Reset Winsock control -----
+	::  Reset Winsock control 
 	call :print Reset Winsock control.
 
 	call :print Restoring transaction logs.
@@ -890,18 +831,15 @@ goto :eof
 	call :print Restoring the Proxy.
 	netsh winhttp reset proxy
 
-	:: ----- End process -----
+	::  End process 
 	call :print The operation completed successfully.
 
 	echo.Press any key to continue . . .
 	pause>nul
 goto :eof
-:: /*************************************************************************************/
-
 
 :: Forcing group policy update.
 :: void gpupdate();
-:: /*************************************************************************************/
 :gpupdate
 	call :print Forcing group policy update.
 
@@ -923,12 +861,9 @@ goto :eof
 	echo.Press any key to continue . . .
 	pause>nul
 goto :eof
-:: /*************************************************************************************/
-
 
 :: Search Updates.
 :: void updates();
-:: /*************************************************************************************/
 :updates
 	call :print Looking for updates.
 
@@ -951,23 +886,17 @@ goto :eof
 		)
 	)
 goto :eof
-:: /*************************************************************************************/
-
 
 :: Reset the Windows Store.
 :: void wsreset();
-:: /*************************************************************************************/
 :wsreset
 	call :print Resetting the Windows Store.
 
 	wsreset
 goto :eof
-:: /*************************************************************************************/
-
 
 :: Get the Windows Product Key.
 :: void productKey();
-:: /*************************************************************************************/
 :productKey
 	call :print Getting the Windows Product Key.
 
@@ -977,12 +906,9 @@ goto :eof
 	echo.Press any key to continue . . .
 	pause>nul
 goto :eof
-:: /*************************************************************************************/
-
 
 :: Explore other local solutions.
 :: void local();
-:: /*************************************************************************************/
 :local
 	call :print Looking for solutions in this PC.
 
@@ -995,23 +921,17 @@ goto :eof
 		pause>nul
 	)
 goto :eof
-:: /*************************************************************************************/
-
 
 :: Explore other online solutions.
 :: void online();
-:: /*************************************************************************************/
 :online
 	call :print Looking for solutions Online.
 
 	start https://support.microsoft.com/en-us/gp/windows-update-issues/
 goto :eof
-:: /*************************************************************************************/
-
 
 :: Reboot the system.
 :: void restart();
-:: /*************************************************************************************/
 :restart
 	call :print Restart your PC.
 
@@ -1028,21 +948,16 @@ goto :eof
 	echo.Press any key to continue . . .
 	pause>nul
 goto :eof
-:: /*************************************************************************************/
-
 
 :: Open help file.
 :: void help();
-:: /*************************************************************************************/
 :help
 	start https://github.com/ManuelGil/Reset-Windows-Update-Tool/wiki
 goto :eof
-:: /*************************************************************************************/
 
 
 :: diagnostic tools menu.
 :: void diagnostic();
-:: /*************************************************************************************/
 :diagnostic
 	call :print Download and run diagnostics for your system.
 
@@ -1076,14 +991,9 @@ goto :eof
 
 	goto diagnostic
 goto :eof
-:: /*************************************************************************************/
-
 
 :: End tool.
 :: void close();
-:: /*************************************************************************************/
 :close
 	exit
 goto :eof
-:: /*************************************************************************************/
-

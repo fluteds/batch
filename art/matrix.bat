@@ -1,5 +1,5 @@
 ::Matrix
-@echo OFF
+@echo off
 Title Matrix
 color 0A
 :Matrix

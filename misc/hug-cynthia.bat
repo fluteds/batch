@@ -1,4 +1,4 @@
-@ECHO OFF
+@echo off
 title "Hug Cynthia! <3"
 echo.
        

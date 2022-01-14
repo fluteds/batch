@@ -9,20 +9,20 @@ SETLOCAL EnableExtensions DisableDelayedExpansion
 SET service=w32time
 
 SC QUERYEX %service% | FIND "STATE" | FIND /v "RUNNING" > NUL && (
-  ECHO %service% is not running
-  ECHO Start %service%
+  echo %service% is not running
+  echo Start %service%
 
   NET START %service% > NUL || (
-    ECHO %service% won't start
+    echo %service% won't start
     pause
     EXIT /B 1
   )
 
-  ECHO %service% is started
+  echo %service% is started
   GOTO sync
   EXIT /B 0
 ) || (
-  ECHO %service% is running
+  echo %service% is running
   GOTO sync
   EXIT /B 0
 )

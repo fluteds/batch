@@ -1,5 +1,6 @@
-@ECHO OFF
-ECHO                                                                              
+@echo off
+
+echo                                                                              
 :::                            88 88 88                               88             
 :::              ,d            88 88 88                               ""             
 :::              88            88 88 88                                              
@@ -13,17 +14,17 @@ ECHO
 
 for /f "delims=: tokens=*" %%A in ('findstr /b ::: "%~f0"') do @echo(%%A
 
-ECHO.
+echo.
 color 0A
-ECHO This is the basic YouTube-dl Batchfile. 
-ECHO Run ytdl.cmd for more customisation.
-ECHO.
+echo This is the basic YouTube-dl Batchfile. 
+echo Run ytdl.cmd for more customisation.
+echo.
 SET /P URL="[Enter video URL] "
-ECHO.
+echo.
 YouTube-dl -o D:\Downloads/%%(title)s.%%(ext)s -i --ignore-config --hls-prefer-native %URL%
-ECHO.
-ECHO ======================================================================================================================
-ECHO.
-ECHO Done!
-PAUSE
+echo.
+echo ======================================================================================================================
+echo.
+echo Done!
+pause
 EXIT

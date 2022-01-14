@@ -1,5 +1,5 @@
 ::Check connection
-@echo OFF
+@echo off
 color 0A
 title Check connection
 cls

@@ -1,5 +1,5 @@
 ::Earth ASCII Animation
-@echo OFF
+@echo off
 Title Earth Animation - Fluteds
 color 0A
 echo.

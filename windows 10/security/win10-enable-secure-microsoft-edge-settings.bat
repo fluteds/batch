@@ -8,12 +8,12 @@ if '%1'=='ELEV' (echo ELEV & shift /1 & goto gotPrivileges)
 setlocal DisableDelayedExpansion
 set "batchPath=%~0"
 setlocal EnableDelayedExpansion
-ECHO Set UAC = CreateObject^("Shell.Application"^) > "%temp%\OEgetPrivileges.vbs"
-ECHO args = "ELEV " >> "%temp%\OEgetPrivileges.vbs"
-ECHO For Each strArg in WScript.Arguments >> "%temp%\OEgetPrivileges.vbs"
-ECHO args = args ^& strArg ^& " "  >> "%temp%\OEgetPrivileges.vbs"
-ECHO Next >> "%temp%\OEgetPrivileges.vbs"
-ECHO UAC.ShellExecute "!batchPath!", args, "", "runas", 1 >> "%temp%\OEgetPrivileges.vbs"
+echo Set UAC = CreateObject^("Shell.Application"^) > "%temp%\OEgetPrivileges.vbs"
+echo args = "ELEV " >> "%temp%\OEgetPrivileges.vbs"
+echo For Each strArg in WScript.Arguments >> "%temp%\OEgetPrivileges.vbs"
+echo args = args ^& strArg ^& " "  >> "%temp%\OEgetPrivileges.vbs"
+echo Next >> "%temp%\OEgetPrivileges.vbs"
+echo UAC.ShellExecute "!batchPath!", args, "", "runas", 1 >> "%temp%\OEgetPrivileges.vbs"
 "%SystemRoot%\System32\WScript.exe" "%temp%\OEgetPrivileges.vbs" %*
 exit /B
 
@@ -23,7 +23,7 @@ setlocal & pushd .
 cd /d %~dp0
 
 :START
-@ECHO off
+@echo off
 for /f "delims= " %%a in ('"wmic useraccount where name='%username%' get sid"') do (
    if not "%%a"=="SID" (          
       set myvar=%%a

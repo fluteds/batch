@@ -64,6 +64,7 @@ Windows 10
 ⚠️ Do not run any of the following Windows without checking the code first - if you break something it is not my fault. A lot of these change something about the system and can cause issues.
 
 - Reset Windows Updates - Resets Windows Update Components
+- Clear Windows Update Cache - Clears Windows Update Cache
 - Advanced Explorer Settings -This changes more than a dozen File Explorer related settings on Windows 10 that turn of animations, enable menus, or turn off things like Toasts
 - Disable Automatic App Updates - Turns off automatic updates for Windows Store applications
 - Disable Automatic Windows Updates - Turns off automatic updates for the Windows 10 operating system itself
