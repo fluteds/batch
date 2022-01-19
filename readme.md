@@ -47,7 +47,7 @@ Misc
 - Download mp3 - Converts a YouTube video to mp3
 - Keep on Top - Keeps the current window on top of the other windows - uses `Ctrl` `+` `Space`
 - Hug Cynthia - Hug Cynthia using a `GET` request to `cynthia.rest`
-- Bad Domain - Submit a `POST` Discord scam domain request to `bad-domains.walshy.dev/report`
+- Bad Domain - Submit a `POST` Discord scam domain request to `bad-domains.walshy.dev/report` or `https://bad-domains.walshy.dev/check`
 - Printer Queue - Opens the Printer Queue
 - Show Wifi Password - Runs `netsh wlan show profiles` and grabs the password for a previously connected connection
 - Wifi Hotspot - Creates and manages Wifi Hotspots from the device
