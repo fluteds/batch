@@ -42,8 +42,8 @@ Function
 
 Misc
 
-- Ytdl - Downloads a YouTube video via YouTube-dl and has a tonne of customizable options
-- Ytdl-basic - Paste a link and download of YouTube videos via YouTube-dl
+- Ytdl - Downloads a YouTube video via yt-dlp and has a tonne of customizable options
+- Ytdl-basic - Paste a link and download of YouTube videos via yt-dlp
 - Download mp3 - Converts a YouTube video to mp3
 - Keep on Top - Keeps the current window on top of the other windows - uses `Ctrl` `+` `Space`
 - Hug Cynthia - Hug Cynthia using a `GET` request to `cynthia.rest`

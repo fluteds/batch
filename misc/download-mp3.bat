@@ -49,14 +49,14 @@ goto start
 
 :option_1
 set /p link=YouTube Link:
-YouTube-dl -i -x --audio-format mp3 --audio-quality 0 "%link%" -o "audio/%%(title)s.%%(ext)s"
+yt-dlp -i -x --audio-format mp3 --audio-quality 0 "%link%" -o "audio/%%(title)s.%%(ext)s"
 echo.
 echo Enter a YouTube link below:
 goto option_1
 
 :option_2
 set /p link=YouTube Link:
-YouTube-dl -i --recode-video mp4 "%link%" -o "video/%%(title)s.%%(ext)s"
+yt-dlp -i --recode-video mp4 "%link%" -o "video/%%(title)s.%%(ext)s"
 echo.
 echo Enter a YouTube link below:
 goto option_2

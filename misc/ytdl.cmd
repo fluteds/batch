@@ -16,7 +16,7 @@ echo
 for /f "delims=: tokens=*" %%A in ('findstr /b ::: "%~f0"') do @echo(%%A
 
 echo.
-echo This is the advanced YouTube-dl Batchfile. 
+echo This is the advanced yt-dlp Batchfile. 
 echo Run ytdl-basic.cmd for a simple download experience.
 echo.
 SET /P URL="[Enter video URL] "
@@ -25,7 +25,7 @@ goto formatList
 
 :formatList
 echo.
-YouTube-dl -F %URL%
+yt-dlp -F %URL%
 echo.
 echo ======================================================================================================================
 goto selection
@@ -52,7 +52,7 @@ SET /P audio="Select audio format: "
 echo.
 echo ======================================================================================================================
 echo.
-YouTube-dl -o D:\Downloads/%%(title)s.%%(ext)s -f %video%+%audio% -i --ignore-config --hls-prefer-native %URL%
+yt-dlp -o D:\Downloads/%%(title)s.%%(ext)s -f %video%+%audio% -i --ignore-config --hls-prefer-native %URL%
 echo.
 echo ======================================================================================================================
 echo.
@@ -66,7 +66,7 @@ SET /P format="Select format: "
 echo.
 echo ======================================================================================================================
 echo.
-YouTube-dl -o D:\Downloads/%%(title)s.%%(ext)s -f %format% -i --ignore-config --hls-prefer-native %URL%
+yt-dlp -o D:\Downloads/%%(title)s.%%(ext)s -f %format% -i --ignore-config --hls-prefer-native %URL%
 echo.
 echo ======================================================================================================================
 echo.
