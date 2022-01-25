@@ -1,6 +1,5 @@
 :: How to Revert
-:: Text colour goes to black 
-:: https://superuser.com/questions/1003038/how-to-change-win10-taskbar-text-color-from-black-to-white
+:: Text colour goes to black - Change from Light to Dark Mode and then back
 :: Remove text from icons on taskbar
 :: https://helpdeskgeek.com/how-to/remove-text-icons-windows-taskbar/
 

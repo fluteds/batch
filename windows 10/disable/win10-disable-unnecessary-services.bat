@@ -1,3 +1,7 @@
+:: Disables MapsBroker (Used for accessing downloaded maps in offline apps)
+:: Disables DoSvc (Delivery Optimization for peer-to-peer distribution on your local network)
+:: Disables WSearch (Indexes searches into your Windows Search Bar - high CPU usage)
+
 :checkPrivileges
 NET FILE 1>NUL 2>NUL
 if '%errorlevel%' == '0' ( goto gotPrivileges ) else ( goto getPrivileges )
