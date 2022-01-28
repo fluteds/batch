@@ -51,6 +51,7 @@ Misc
 - Printer Queue - Opens the Printer Queue
 - Show Wifi Password - Runs `netsh wlan show profiles` and grabs the password for a previously connected connection
 - Wifi Hotspot - Creates and manages Wifi Hotspots from the device
+- Inject Powercord - Updates, unplugs and plugs powercord
 
 Terminal Art
 
