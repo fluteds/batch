@@ -1,37 +1,38 @@
-:: Updates, unplugs and plugs powercord because I'm too lazy to do it manually
-
 @echo off
 
-set "pcPath=C:\Users\%username%\powercord\"
-set "discordPath=C:\Users\%username%\AppData\Local\DiscordCanary\app-0.0.264\DiscordCanary.exe"
+set "discordPath=%userprofile%\AppData\Local\DiscordCanary\app-1.0.43"
 
-echo "Changing directory to powercord..."
-cd powercord
+cd %userprofile%\powercord
+
+echo.
+echo You will have to restart the batch file to do more things after it closes.
+echo This is because the NPM scripts force the cmd window to pause and not take more commands.
+echo.
+echo 1. Unplug powercord (Remove)
+echo 2. Plug powercord (Install)
+echo 3. Kill Discord
+echo 4. Reload Discord
 echo.
 
-echo "Checking for updates upstream..."
-git pull 
-echo.
+set /p input=What do you want to do? (1, 2, 3 or 4):
 
-echo "Unplugging powercord..."
+if %input% == 1 goto Unplug
+if %input% == 2 goto Plug
+if %input% == 3 goto Discord
+if %input% == 4 goto Reload
+
+:Unplug
 npm run unplug
-echo.
 
-echo "Killing Discord to finish updating..."
-taskkill /f /im "DiscordCanary.exe"
-echo "Waiting for Discord to close..."
-echo "Discord Closed." 
-echo.
-
-echo "Plugging powercord..."
+:Plug
 npm run plug
-echo "Powercord plugged."
-echo.
 
-echo "Restarting Discord..."
-start %discordPath%
-echo "Discord started."
-echo.
-echo.
-echo Update Done!
-pause
+:: I literally have no idea why this also restarts Discord, but it does.
+
+:Discord
+echo "Attempting to kill Discord..."
+taskkill /f /im "DiscordCanary.exe"
+
+:Reload
+start %discordPath%\DiscordCanary.exe
+exit
