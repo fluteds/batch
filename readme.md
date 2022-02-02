@@ -53,6 +53,12 @@ Misc
 - Wifi Hotspot - Creates and manages Wifi Hotspots from the device
 - Inject Powercord - Updates, unplugs and plugs powercord
 
+Task Scheduler
+
+XML files that are imported into Task Scheduler. Note: most of these will not work if you do not have the batch folder in the correct place.
+
+- Wake PC - Wakes the PC from sleep at 2:05pm during the working week only if the PC has been idle for one hour
+
 Terminal Art
 
 - Earth Animation - A spinning animation of the earth
