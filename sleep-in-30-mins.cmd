@@ -1,6 +1,6 @@
 @echo off
 
-:: run to disable hibernation 
+:: disable hibernation 
 :: or it will hibernate instead of sleeping
 :: powercfg -h off 
 

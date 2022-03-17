@@ -2,15 +2,6 @@
 
 These are my collection of batch files and AutoHotKey scripts, some written by me, some written by others and modified. If any of the scripts don't work, run the script with Administrator rights. You must have AutoHotKey installed to run the AHK scripts.
 
-````cmd
-       -      _______                               '  *      '
-      {}``; |==|_______D                                * * -+-  
-      / ('        /|\                                 *     '  *
-  (  /  |        / | \                                *   '    
-akg\(_)_]]      /  |  \                            *   *     
-                                                     '   *
-````
-
 PC Info
 
 - Sys Info - Lists Specs
@@ -18,7 +9,7 @@ PC Info
 
 Clean Cache/Space
 
-- Outlook - Opens Outlooks `localdata` then deletes the Internet Calendars
+- Delete Outlook Cache - Opens Outlooks `localdata` then deletes the Internet Calendars
 - Delete Search - Deletes All File Explorer Search History
 
 Function
@@ -89,6 +80,12 @@ Windows 10
 - Enable Administrator Account - This preference enables the hidden administrator account in Windows
 - Enable Standby instead of Hibernate - Switch powerstate from hibernation (slow) to standby
 - Get apps access for Administrator Account - Enable access to applications for the administrator account
+
+Windows 11
+
+⚠️ Do not run any of the following Windows without checking the code first - if you break something it is not my fault. A lot of these change something about the system and can cause issues.
+
+- Clear pinned taskbar - Unpins everything from the taskbar all at once
 
 Run Batch Files on Startup
 

@@ -1,19 +1,29 @@
 ::Check connection
 @echo off
-color 0A
-title Check connection
+title Check online connection
 cls
-echo Testing connection...
-echo Please wait...
+echo Pings a chosen site
+echo Returns the connection status
+echo.
+echo Attempting to ping 
+echo.
+echo www.google.com
+echo.
+echo STATUS
+echo ------
 
 ping -n 1 www.google.com >nul
 if not errorlevel 1 goto :noerror
 if errorlevel 1 goto :error
 
 :noerror
+color 0A
 echo Connection successful!
 pause >nul
 
 :error
-echo No connection :( - Try flushing the DNS
+color 0C
+echo No internet connection. 
+echo Try flushing the DNS
+echo.
 pause >nul

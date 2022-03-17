@@ -1,3 +1,4 @@
-; Suspend AutoHotkey Script by adding this into your script
+; Suspend AutoHotkey Script
+; Usage: add this into your script somewhere
 #ScrollLock::Suspend ; Win + scrollLock
 return
