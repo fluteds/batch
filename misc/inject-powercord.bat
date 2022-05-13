@@ -1,7 +1,6 @@
 @echo off
 
 set "discordPath=%userprofile%\AppData\Local\DiscordCanary\app-1.0.43"
-
 cd %userprofile%\powercord
 
 echo.

@@ -1,7 +1,7 @@
 @echo off
 
-:: disable hibernation 
-:: or it will hibernate instead of sleeping
+:: Disable hibernation 
+:: Or it will hibernate instead of sleeping
 :: powercfg -h off 
 
 title The PC will sleep in 30 minutes

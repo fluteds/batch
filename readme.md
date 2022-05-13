@@ -1,6 +1,6 @@
 ## Batch Scripts
 
-These are my collection of batch files and AutoHotKey scripts, some written by me, some written by others and modified. If any of the scripts don't work, run the script with Administrator rights. You must have AutoHotKey installed to run the AHK scripts.
+These are my collection of batch files and AutoHotKey scripts, some written by me, some written by others and modified. If any of the scripts don't work, run the script with Administrator rights. You must have AutoHotKey installed to run the AHK scripts. These are in no particular order in relation to the directory tree, mainly because I keep forgetting to update the readme whenever I move a script or add a new one.
 
 PC Info
 
@@ -10,16 +10,18 @@ PC Info
 Clean Cache/Space
 
 - Delete Outlook Cache - Opens Outlooks `localdata` then deletes the Internet Calendars
-- Delete Search - Deletes All File Explorer Search History
+- Delete Search - Deletes all File Explorer search history
 
 Function
 
+These are functional scripts, like quality of life, used for PC maintenance and fixing errors.
+
 - List - Lists Current Directory Contents  
-- Make - Creates a Directory and Moves Into It  
+- Make - Creates a Directory and moves into it  
 - Remove - Remove Files or Directories  
 - New - Create New Files  
-- Flush Wifi - Lists All Wifi Devices and Flushes Them to Fix Wifi Errors
-- Cmd -  Opens a Command Prompt if You Don't Have Access to the Run Window
+- Flush Wifi - Lists all Wifi Devices and flushes them to fix Wifi errors
+- Cmd -  Opens a Command Prompt if you don't have access to the Run Window
 - Sync Time - Synchronize Time on Local Computer Using W32tm
 - Volume - AHK script that changes the current volume using `Shift` `+` Numkeys `+` and `-`
 - Trash - AHK script that empties the recycle bin using `Win` `+` `Del`
@@ -33,24 +35,22 @@ Function
 
 Misc
 
-- Ytdl - Downloads a YouTube video via yt-dlp and has a tonne of customizable options
-- Ytdl-basic - Paste a link and download of YouTube videos via yt-dlp
-- Download mp3 - Converts a YouTube video to mp3
-- Keep on Top - Keeps the current window on top of the other windows - uses `Ctrl` `+` `Space`
+- Ytdl - Downloads a YouTube video via yt-dlp and has a tonne of customisable options
+- Ytdl Basic - Paste a link and download YouTube videos via yt-dlp, no customising options, always downloads in the best quality
+- Download MP3 - Converts a YouTube video to mp3
+- Keep on Top - AHK script that keeps the current window on top of the other windows - uses `Ctrl` `+` `Space`
 - Hug Cynthia - Hug Cynthia using a `GET` request to `cynthia.rest`
 - Bad Domain - Submit a `POST` Discord scam domain request to `bad-domains.walshy.dev/report` or `https://bad-domains.walshy.dev/check`
 - Printer Queue - Opens the Printer Queue
 - Show Wifi Password - Runs `netsh wlan show profiles` and grabs the password for a previously connected connection
 - Wifi Hotspot - Creates and manages Wifi Hotspots from the device
 - Inject Powercord - Updates, unplugs and plugs powercord
-
-Task Scheduler
-
-XML files that are imported into Task Scheduler. Note: most of these will not work if you do not have the batch folder in the correct place.
-
-- Wake PC - Wakes the PC from sleep at 2:05pm during the working week only if the PC has been idle for one hour
+- Twitch Theatre - Presses `FN`+`F11` via `\` to make Twitch fullscreen on Laptop, cuts out having to press two keys to make it fullscreen
+- Spicetify Update - Updates and backs up Spicetify on the device after an update is installed
 
 Terminal Art
+
+Just a bunch of terminal art.
 
 - Earth Animation - A spinning animation of the earth
 - Light Effect - Flashes from green to black ⚠️ Flashing Strobe
@@ -85,7 +85,7 @@ Windows 11
 
 ⚠️ Do not run any of the following Windows without checking the code first - if you break something it is not my fault. A lot of these change something about the system and can cause issues.
 
-- Clear pinned taskbar - Unpins everything from the taskbar all at once
+- Clear Pinned Taskbar - Unpins everything from the taskbar all at once
 
 Run Batch Files on Startup
 
@@ -97,7 +97,7 @@ Run Batch Files on Startup
 shell:startup
 ```
 
-- To open the `Startup` folder for the `All Users`, type:
+- To open the `Startup` folder for `All Users`, type:
 
 ```cmd
 shell:common startup

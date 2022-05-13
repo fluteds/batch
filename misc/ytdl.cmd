@@ -1,6 +1,5 @@
 @echo off
-color 0A
-echo 
+color 0A 
                                    
 :::                             88 88  
 :::               ,d            88 88  
@@ -17,6 +16,7 @@ for /f "delims=: tokens=*" %%A in ('findstr /b ::: "%~f0"') do @echo(%%A
 
 echo.
 echo This is the advanced yt-dlp Batchfile. 
+echo.
 echo Run ytdl-basic.cmd for a simple download experience.
 echo.
 SET /P URL="[Enter video URL] "
