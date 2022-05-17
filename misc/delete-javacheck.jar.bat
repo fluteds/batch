@@ -8,6 +8,8 @@ cd C:\Users\%username%\Documents\Curse\Minecraft\Install\game
 del javacheck.jar
 cd C:\Users\%username%\AppData\Local\Packages\Microsoft.4297127D64EC6_8wekyb3d8bbwe\LocalCache\Local\game
 del javacheck.jar
+cd C:\Program Files (x86)\Minecraft Launcher\game
+del javacheck.jar
 echo.
 echo If path cannot find the file, it usually means it has been deleted before.
 echo Done.
