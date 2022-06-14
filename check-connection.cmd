@@ -7,12 +7,12 @@ echo Returns the connection status
 echo.
 echo Attempting to ping 
 echo.
-echo www.google.com
+echo www.duckduckgo.com
 echo.
 echo STATUS
 echo ------
 
-ping -n 1 www.google.com >nul
+ping -n 1 www.duckduckgo.com >nul
 if not errorlevel 1 goto :noerror
 if errorlevel 1 goto :error
 
