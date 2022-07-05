@@ -5,10 +5,9 @@
 	Lists the current weather forecast using wttr.in.
 .PARAMETER GeoLocation
 	Specifies the geographic location to use e.g. "London, UK"
-
 #>
 
-param([string]$GeoLocation = "") # empty means determine automatically
+param([string]$GeoLocation = "") # Empty means determine automatically
 
 try {
 	(Invoke-WebRequest http://wttr.in/$GeoLocation -userAgent "curl" -useBasicParsing).Content

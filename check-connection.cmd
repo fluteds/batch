@@ -7,7 +7,7 @@ echo Returns the connection status
 echo.
 echo Attempting to ping 
 echo.
-echo www.duckduckgo.com
+echo duckduckgo.com
 echo.
 echo STATUS
 echo ------

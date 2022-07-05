@@ -2,9 +2,9 @@
 
 setlocal enabledelayedexpansion
 
-echo Please run with administrator privileges to see the Wifi password.
 echo.
-echo Devices without being connected to Wifi networks will not work.
+echo This will only show network passwords that you have CONNECTED TO PREVIOUSLY.
+echo.
 
 :main
 title Show Wifi Password
@@ -35,6 +35,7 @@ set result=
 FOR /F "usebackq tokens=2 delims=:" %%a in (
 `netsh wlan show profile name^="%~1" key^=clear ^| findstr /C:"Key Content"`) DO (
 set result=%%a
+echo.
 set result=!result:~1!
 )
 (
@@ -44,7 +45,7 @@ set %2=%result%
 
 goto :eof
 
-:: Get all network profiles (comma separated) into a result-variable
+:: Get all network profiles into a result-variable
 :get-profiles <1=result-variable>
 setlocal
 set result=

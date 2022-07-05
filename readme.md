@@ -9,6 +9,7 @@ These are my collection of batch files, Powershell and AutoHotKey scripts, some 
 - Suspend - AHK snippet that suspends running AHK scripts using `Win` `+` `Scrolllock` - must have the snippet inserted into any scripts you want to suspend in order to work
 - Auto Correct - AHK that auto corrects words - use `Win` `+` `H` to add new words
 - Keep on Top - AHK script that keeps the current window on top of the other windows - uses `Ctrl` `+` `Space`
+- Norwegian Keybinds - AHK script that binds `Q/W/R` keys on a QWERTY keyboard to use Norwegian letters `Ø/Å/Æ` when pressed twice
 
 ## Terminal Scripts (Batch/Bat/Cmd)
 

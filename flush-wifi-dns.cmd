@@ -33,18 +33,3 @@ netsh int ip reset
 ipconfig /release
 ipconfig /renew
 ipconfig /flushdns
-
-echo Process Done!
-echo For the best results, please restart your PC
-choice /c:yn /m:"Do you want to restart?"
-IF ERRORLEVEL ==1 GOTO :Restart
-IF ERRORLEVEL ==2 GOTO :ExitBat
-
-:Restart
-shutdown -r
-echo PC will restart in ~1 minute
-echo Exiting in 10 seconds
-timeout /t 10 /nobreak
-
-:ExitBat
-exit
