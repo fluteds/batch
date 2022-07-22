@@ -1,3 +1,5 @@
-^SPACE:: Winset, Alwaysontop, , A
-#ScrollLock::Suspend ; Win + scrollLock
-return
+﻿#SingleInstance Force
+SendMode Input
+SetWorkingDir %A_ScriptDir%
+
+^SPACE::  Winset, Alwaysontop, , A ; Ctrl + Space

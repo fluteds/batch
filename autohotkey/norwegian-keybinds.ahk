@@ -9,42 +9,42 @@ SetWorkingDir, %A_ScriptDir%
 
 ~$q::
 KeyWait, q, U
-KeyWait, q, D, T0.2
+KeyWait, q, D, T0.1
 If (ErrorLevel = 0)
 send, {BS 2}ø
 return
 
 ~$+Q:: ; Capital 
 KeyWait, Q, U
-KeyWait, Q, D, T0.2
+KeyWait, Q, D, T0.1
 If (ErrorLevel = 0)
 send, {BS 2}Ø
 return
 
 ~$w::
 KeyWait, w, U
-KeyWait, w, D, T0.2
+KeyWait, w, D, T0.1
 If (ErrorLevel = 0)
 send, {BS 2}å
 return
 
 ~$+W:: ; Capital
 KeyWait, W, U
-KeyWait, W, D, T0.2
+KeyWait, W, D, T0.1
 If (ErrorLevel = 0)
 send, {BS 2}Å
 return
 
 ~$e::
 KeyWait, e, U
-KeyWait, e, D, T0.2
+KeyWait, e, D, T0.1
 If (ErrorLevel = 0)
 send, {BS 2}æ
 return
 
 ~$+E:: ; Capital
 KeyWait, E, U
-KeyWait, E, D, T0.2
+KeyWait, E, D, T0.1
 If (ErrorLevel = 0)
 send, {BS 2}Æ
 return
