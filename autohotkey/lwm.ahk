@@ -204,6 +204,24 @@ F17::
 	}
 return
 
+F18::
+^#Numpad5:: ;musicbee to primary monitor and fullscreen
+	if (htk == 0) {
+		htk := 1
+		WinMinimize, ahk_exe Discord.exe
+		WinGet, teamswins, List, ahk_exe Teams.exe
+		Loop, % teamswins {
+			PostMessage, 0x0112, 0xF020,,, % "ahk_id " teamswins%A_Index%
+			Sleep, 50
+		}
+		WinRestore, ahk_exe MusicBee.exe
+		WinMove, ahk_exe MusicBee.exe,, 0, 0  ; position on primary
+		WinMaximize, ahk_exe MusicBee.exe
+		WinActivate, ahk_exe MusicBee.exe
+		htk := 0
+	}
+return
+
 ^#F1::
 	if !WinExist("lwm_hotkeys") {
 		Gui, New, -MinimizeBox, lwm_hotkeys
@@ -211,7 +229,7 @@ return
 		Gui, add, Text,, lwm
 		Gui, font, s10,
 		Gui, add, Text,, layout window manager `n`nby KraXen72 (edited by Fluteds)
-		Gui, add, Text,, F13 / ctrl + win + num0 - lwm: hideall `nF14 / ctrl + win + num1 - lwm: discord fullscreen`nF15 / ctrl + win + num2 - lwm: discord + musicbee`nF16 / ctrl + win + num3 - lwm: ms teams`nF17 / ctrl + win + num4 - lwm: fullscreen discord to primary monitor`n`nctrl + win + num7 - teams connection throttle`nctrl + win + num8 - mic: unmute`nctrl + win + num9 - mic: mute`nF24 - obs: toggle freeze
+		Gui, add, Text,, F13 / ctrl + win + num0 - lwm: hideall`nF14 / ctrl + win + num1 - lwm: discord fullscreen`nF15 / ctrl + win + num2 - lwm: discord + musicbee`nF16 / ctrl + win + num3 - lwm: ms teams`nF17 / ctrl + win + num4 - lwm: fullscreen discord to primary monitor`nF18 / ctrl + win + num5 - lwm: fullscreen musicbee to primary monitor`nctrl + win + num7 - teams connection throttle`nctrl + win + num8 - mic: unmute`nctrl + win + num9 - mic: mute`nF24 - obs: toggle freeze
 		Gui, Show
 	}
 return
