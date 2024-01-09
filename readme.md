@@ -21,6 +21,7 @@ Collection of batch files, Powershell and AutoHotKey scripts, some written by me
 - Mahjong Soul Fullscreen - Presses `FN`+`F11` via `\` to make the Majsoul webpage fullscreen on a laptop
 - YouTube Fullscreen - Presses `FN`+`F11` via `\` to make Youtube fullscreen on a laptop
 - Layout Windows Manager - Edited version of [this script](https://github.com/KraXen72/ahk-scripts) (used before bug.n.) Pressing `Ctrl`+`Win`+`F1` will bring up a shortcut guide
+- Numpad - Binds numpad keys on the keyboard. Toggable with `Prt Sc`
 
 ## Terminal Scripts
 

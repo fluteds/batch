@@ -1,10 +1,13 @@
 audio/*
 /audio
+bash
 *.code-workspace
+*.csv
+docs.md
+*.exe
 *.mp3
 *.mp4
 /shortcut
+*.txt
 *.wav
-*.exe
-*.csv
 wip

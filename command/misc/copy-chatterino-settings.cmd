@@ -3,10 +3,10 @@ title Chatterino Config Sync
 
 rem If your paths are different from the default paths, change them below. rem Make sure to put "" around the path if it contains spaces and finish the path with \ or Windows thinks it's a file name. 
 
-set drivePath="G:\My Drive\Chatterino"
-set driveThemePath="G:\My Drive\Chatterino\Themes"
-set chatterinoPath="C:\Users\%username%\AppData\Roaming\Chatterino2\Settings" 
-set chatterinoThemesPath="C:\Users\%username%\AppData\Roaming\Chatterino2\Themes"
+set drivePath="G:\My Drive\Chatterino\"
+set driveThemePath="G:\My Drive\Chatterino\Themes\"
+set chatterinoPath="C:\Users\%username%\AppData\Roaming\Chatterino2\Settings\" 
+set chatterinoThemesPath="C:\Users\%username%\AppData\Roaming\Chatterino2\Themes\"
 
 :start echo. 
 echo 1. Copy from Google Drive to Local Disk 
@@ -33,22 +33,21 @@ echo.
 echo Copying Chatterino Config from Google Drive to local disk. 
 xcopy %drivePath% %chatterinoPath% /y 
 xcopy %driveThemePath% %chatterinoThemesPath% /y
-
 goto end
 
 :fromLocal 
 echo. 
 echo Copying Chatterino Config from local disk to Google Drive. 
 xcopy %chatterinoPath% %drivePath% /y 
-xcopy %chatterinoThemesPath% %driveThemePath% /y /E
-
+xcopy %chatterinoThemesPath% %driveThemePath% /y /exclude:*json.bkp-?
 goto end
 
-:listPaths 
+:listPaths
 echo. 
-echo Chatterino Path: %chatterinoPath% 
-echo Google Drive Path: %drivePath% 
+echo Chatterino Path: %chatterinoPath%
 echo Themes Path: %chatterinoThemesPath% 
+echo Google Drive Path: %drivePath% 
+echo Google Drive Themes Path: %driveThemePath%
 echo. 
 timeout 5 
 goto start
@@ -60,9 +59,8 @@ echo.
 echo This action cannot be undone. 
 echo To terminate, close the terminal window now. 
 timeout /t 30 
-cd %chatterinoPath% 
-del .bkp-
-
+cd %chatterinoPath%
+del *.json.bkp-?
 goto :end
 
 :end
