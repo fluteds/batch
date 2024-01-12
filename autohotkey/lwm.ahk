@@ -33,12 +33,17 @@ CoordMode, Mouse, Screen
 ; MAIN PC
 ;monitor_width := 650
 ;monitor_height := -1251
-;top_offset := 1080
+;top_offset := -1080
+
+; LAPTOP
+;monitor_width := 1920 ; 2560 if you have a 1440p main monitor, 1920 if you have a 1080p monitor
+;monitor_height := -1440 ; 1440p if you have a 1440p monitor
+;top_offset := 0 ; if the monitor is above the primary, use minus, else use 0
 
 htk := 0 ; prevent running multiple hotkeys at once - 1 hotkey is running - 0 you can run hotkey
-monitor_width := 1920 ; 2560 if you have a 1440p main monitor, 1920 if you have a 1080p monitor
-monitor_height := -1440 ; 1440p if you have a 1440p monitor
-top_offset := 0 ; if the monitor is above the primary, use minus, else use 0
+monitor_width := 650
+monitor_height := -1251
+top_offset := -1080
 teams_main_side := "right" ; left or right
 teams_gaps := 5 ; margin around main teams windows
 
@@ -303,14 +308,14 @@ EnsureDiscordIsOnSecondaryMonitor(monitor_width)
 		WinRestore, ahk_exe Discord.exe
 	}
 }
-EnsureWindowIsOnSecondaryMonitor(monitor_width, windows*)
-{
+EnsureWindowIsOnSecondaryMonitor(monitor_width, windows*) {
     Loop, Parse, windows, `,
     {
         window_name := A_LoopField
         WinGetPos, winx, winy, winw, winh, ahk_exe %window_name%.exe
         if (winx < (monitor_width - 8)) {
             WinRestore, ahk_exe %window_name%.exe
+            WinMove, ahk_exe %window_name%.exe,, monitor_width, winy
         }
     }
 }
