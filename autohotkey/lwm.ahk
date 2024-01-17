@@ -1,8 +1,8 @@
-#Warn
+;#Warn
+;#NoTrayIcon
 #SingleInstance, force
 SendMode, event
 CoordMode, Mouse, Screen
-;#NoTrayIcon
 #WinActivateForce
 
 ; NOTES
@@ -31,8 +31,8 @@ CoordMode, Mouse, Screen
 ; TODO
 
 ; MAIN PC
-;monitor_width := 650
-;monitor_height := -1251
+;monitor_width := 645
+;monitor_height := -1250
 ;top_offset := -1080
 
 ; LAPTOP
@@ -41,8 +41,8 @@ CoordMode, Mouse, Screen
 ;top_offset := 0 ; if the monitor is above the primary, use minus, else use 0
 
 htk := 0 ; prevent running multiple hotkeys at once - 1 hotkey is running - 0 you can run hotkey
-monitor_width := 650
-monitor_height := -1251
+monitor_width := 645
+monitor_height := -1250
 top_offset := -1080
 teams_main_side := "right" ; left or right
 teams_gaps := 5 ; margin around main teams windows
@@ -57,6 +57,7 @@ F13::
 		htk := 1
 		WinMinimize, ahk_exe Discord.exe
 		WinMinimize, ahk_exe MusicBee.exe
+		WinMinimize, ahk_exe Spotify.exe
 		WinGet, teamswins, List, ahk_exe Teams.exe
 		Loop, % teamswins {
 			PostMessage, 0x0112, 0xF020,,, % "ahk_id " teamswins%A_Index%
@@ -89,7 +90,7 @@ F14::
 	}
 return
 
-MoveDiscordMusicBee() { ; declare function to move discord+musicbee before it is called
+MoveDiscordMusicBee() { ; declare function to move discord + musicbee before it is called
 	global monitor_width
 	global top_offset
 	SysGet, _MonNum, MonitorCount
@@ -258,6 +259,49 @@ F18::
 	}
 return
 
+F19::
+^#Numpad6:: ; spotfiy to primary monitor and fullscreen
+	if (htk == 0) {
+		htk := 1
+		WinMinimize, ahk_exe Spotify.exe
+		WinGet, teamswins, List, ahk_exe Teams.exe
+		Loop, % teamswins {
+			PostMessage, 0x0112, 0xF020,,, % "ahk_id " teamswins%A_Index%
+			Sleep, 50
+		}
+        if !WinExist("ahk_exe Spotify.exe")
+            RunSpotify()
+		WinRestore, ahk_exe Spotify.exe
+		WinMove, ahk_exe Spotify.exe,, 0, 0  ; position on primary
+		WinMaximize, ahk_exe Spotify.exe
+		WinActivate, ahk_exe Spotify.exe
+		htk := 0
+	}
+return
+
+F20::
+^#Numpad7:: ; spotify to secondary monitor and fullscreen
+    if (htk == 0) {
+        htk := 1
+        WinMinimize, ahk_exe Discord.exe
+        WinMinimize, ahk_exe MusicBee.exe
+        WinGet, teamswins, List, ahk_exe Teams.exe
+        Loop, % teamswins {
+            PostMessage, 0x0112, 0xF020,,, % "ahk_id " teamswins%A_Index%
+            Sleep, 50
+        }
+		if !WinExist("ahk_exe Spotify.exe")
+            RunSpotify()
+        EnsureWindowIsOnSecondaryMonitor(monitor_width, "Spotify.exe")
+        WinRestore, ahk_exe Spotify.exe
+        WinMove, ahk_exe Spotify.exe,, % monitor_width, % top_offset
+        WinMaximize, ahk_exe Spotify.exe
+        WinActivate, ahk_exe Spotify.exe
+        htk := 0
+    }
+return
+
+
 ^#F1:: ; help menu
 	if !WinExist("lwm_hotkeys") {
 		Gui, New, -MinimizeBox, lwm_hotkeys
@@ -265,7 +309,7 @@ return
 		Gui, add, Text,, lwm
 		Gui, font, s10,
 		Gui, add, Text,, layout window manager `n`nby KraXen72 (edited by Fluteds)
-		Gui, add, Text,, F13 / ctrl + win + num0 - lwm: hideall`nF14 / ctrl + win + num1 - lwm: discord fullscreen`nF15 / ctrl + win + num2 - lwm: discord + musicbee`nF16 / ctrl + win + num3 - lwm: ms teams`nF17 / ctrl + win + num4 - lwm: fullscreen discord to primary monitor`nF18 / ctrl + win + num5 - lwm: fullscreen musicbee to primary monitor
+		Gui, add, Text,, F13 / ctrl + win + num0 - lwm: hideall`nF14 / ctrl + win + num1 - lwm: discord fullscreen`nF15 / ctrl + win + num2 - lwm: discord + musicbee`nF16 / ctrl + win + num3 - lwm: ms teams`nF17 / ctrl + win + num4 - lwm: fullscreen discord to primary monitor`nF18 / ctrl + win + num5 - lwm: fullscreen musicbee to primary monitor`nF19 / ctrl + win + num6 - lwm: fullscreen spotify to primary monitor`nF20 / ctrl + win + num7 - lwm: fullscreen spotify to secondary monitor
 		Gui, Show
 	}
 return
@@ -299,6 +343,14 @@ RunMusicBee() {
 	Sleep, 2500
 	Tooltip,
 }
+
+RunSpotify() {
+	Run, "C:\Users\%username%\AppData\Roaming\Spotify\Spotify.exe" ; change to the .exe location or a shortcut
+	Tooltip, Waiting for Spotify..., 1921, 0
+	Sleep, 2500
+	Tooltip,
+}
+
 
 EnsureDiscordIsOnSecondaryMonitor(monitor_width)
 {
