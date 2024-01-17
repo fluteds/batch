@@ -22,6 +22,7 @@ Collection of batch files, Powershell and AutoHotKey scripts, some written by me
 - YouTube Fullscreen - Presses `FN`+`F11` via `\` to make Youtube fullscreen on a laptop
 - Layout Windows Manager - Edited version of [this script](https://github.com/KraXen72/ahk-scripts) (used before bug.n.) Pressing `Ctrl`+`Win`+`F1` will bring up a shortcut guide
 - Numpad - Binds numpad keys on the keyboard. Toggable with `Prt Sc`
+- Hide Window Titles - Hides the window titles. Toggable with `LWin`+`L/R Btn`
 
 ## Terminal Scripts
 
@@ -81,7 +82,6 @@ Scripts that don't fit into the other categories and don't really have a day to 
 - Remove Print Jobs - Removes all print jobs from the queue
 - Weather Report - Shows a list of the current weather from [wttr.in](https://wttr.in/) [(source)](https://github.com/fleschutz/PowerShell)
 - DNS Resolution - Checks the DNS resolution with frequently used domain names
-- Open Emote Sites - Opens sites related to emote making
 - Restart Network Adapters - Restarts all network adapters known on the PC [(source)](https://github.com/fleschutz/PowerShell)
 - Remove Empty Directories - Removes all empty folders from a given location
 - Update Spicetify Marketplace - Updates Spicetify's marketplace
