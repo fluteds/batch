@@ -1,4 +1,19 @@
-﻿try {
+﻿<# 
+.SYNOPSIS
+    Measures the performance of DNS resolution for a list of domain names stored in a CSV file.
+
+.DESCRIPTION
+    This PowerShell script reads domain names from a CSV file and performs DNS resolution for each domain. It utilizes either the `dig` command or the `Resolve-DnsName` cmdlet based on the operating system to resolve domain names. After resolving all domains, it calculates the average number of domains resolved per second and displays the result.
+
+.PARAMETER PSScriptRoot
+    The root directory of the PowerShell script. This parameter is used to locate the CSV file containing domain names.
+
+.EXAMPLE
+    Measure DNS resolution performance:
+    PS C:\> .\dns-resolution.ps1
+#>
+
+try {
 	$StopWatch = [system.diagnostics.stopwatch]::startNew()
 
 	write-progress "Reading Powershell/domain-names.csv..."

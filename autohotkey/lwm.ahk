@@ -16,7 +16,7 @@ CoordMode, Mouse, Screen
 
 ;				-------------------
 ;				|                 |
-;				|   2nd monitor   | < Where everything on this script is displayed
+;				|   2nd monitor   | < Where most things on this script are displayed
 ;				|                 |
 ;				-------------------
 ;         -------------------
@@ -68,7 +68,7 @@ F13::
 return
 
 F14::
-^#Numpad1:: ; discord fullscreen
+^#Numpad1:: ; discord or vesktop fullscreen
 	if (htk == 0) {
 		htk := 1
 		WinMinimize, ahk_exe MusicBee.exe
@@ -77,15 +77,32 @@ F14::
 			PostMessage, 0x0112, 0xF020,,, % "ahk_id " teamswins%A_Index%
 			Sleep, 50
 		}
-		SysGet, MonNum, MonitorCount
-		if (MonNum = 1) {
-			WinMove, ahk_exe Discord.exe,, 0, % top_offset
-		} else {
-			EnsureWindowIsOnSecondaryMonitor(monitor_width, "Discord.exe")
-			WinMove, ahk_exe Discord.exe,,% monitor_width, % top_offset
+
+		; check if discord is open, if not, use vesktop.exe
+		if (WinExist("ahk_exe Discord.exe")) {
+			WinRestore, ahk_exe Discord.exe
+			SysGet, MonNum, MonitorCount
+			if (MonNum = 1) {
+				WinMove, ahk_exe Discord.exe,, 0, % top_offset
+			} else {
+				EnsureWindowIsOnSecondaryMonitor(monitor_width, "Discord.exe")
+				WinMove, ahk_exe Discord.exe,,% monitor_width, % top_offset
+			}
+			WinMaximize, ahk_exe Discord.exe
+			WinActivate, ahk_exe Discord.exe
+		} else if (WinExist("ahk_exe Vesktop.exe")) {
+			WinRestore, ahk_exe Vesktop.exe
+			SysGet, MonNum, MonitorCount
+			if (MonNum = 1) {
+				WinMove, ahk_exe Vesktop.exe,, 0, % top_offset
+			} else {
+				EnsureWindowIsOnSecondaryMonitor(monitor_width, "Vesktop.exe")
+				WinMove, ahk_exe Vesktop.exe,,% monitor_width, % top_offset
+			}
+			WinMaximize, ahk_exe Vesktop.exe
+			WinActivate, ahk_exe Vesktop.exe
 		}
-		WinMaximize, ahk_exe Discord.exe
-		WinActivate, ahk_exe Discord.exe
+
 		htk := 0
 	}
 return
@@ -233,10 +250,20 @@ F17::
 			PostMessage, 0x0112, 0xF020,,, % "ahk_id " teamswins%A_Index%
 			Sleep, 50
 		}
-		WinRestore, ahk_exe Discord.exe
-		WinMove, ahk_exe Discord.exe,, 0, 0  ; position discord on primary
-		WinMaximize, ahk_exe Discord.exe
-		WinActivate, ahk_exe Discord.exe
+
+		; check if discord is open, if not, use vesktop.exe
+		if (WinExist("ahk_exe Discord.exe")) {
+			WinRestore, ahk_exe Discord.exe
+			WinMove, ahk_exe Discord.exe,, 0, 0  ; position discord on primary
+			WinMaximize, ahk_exe Discord.exe
+			WinActivate, ahk_exe Discord.exe
+		} else if (WinExist("ahk_exe Vesktop.exe")) {
+			WinRestore, ahk_exe Vesktop.exe
+			WinMove, ahk_exe Vesktop.exe,, 0, 0  ; position on primary
+			WinMaximize, ahk_exe Vesktop.exe
+			WinActivate, ahk_exe Vesktop.exe
+		}
+
 		htk := 0
 	}
 return
@@ -340,6 +367,13 @@ RunDiscord() {
 RunMusicBee() {
 	Run, "C:\Program Files (x86)\MusicBee\MusicBee.exe" ; change to the .exe location or a shortcut
 	Tooltip, Waiting for MusicBee..., 1921, 0
+	Sleep, 2500
+	Tooltip,
+}
+
+RunVesktop() {
+	Run, "C:\Users\%username%\AppData\Local\vesktop\Vesktop.exe" ; change to the .exe location or a shortcut
+	Tooltip, Waiting for Vesktop..., 1921, 0
 	Sleep, 2500
 	Tooltip,
 }

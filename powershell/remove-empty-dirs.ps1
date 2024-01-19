@@ -1,4 +1,20 @@
-﻿param([string]$DirTree = "")
+﻿<# 
+.SYNOPSIS
+    Deletes empty directories recursively from the specified directory path and provides details about the deleted directories.
+
+.DESCRIPTION
+    This PowerShell script deletes empty directories recursively from the specified directory path. It first prompts the user to enter the directory path if not provided as a parameter. Then, it identifies all empty directories within the specified path and sorts them based on their depth in the directory tree. After sorting, it deletes each empty directory and records details such as deletion time, creation time, last modified time, and owner. Finally, it displays a message indicating the completion of the deletion process along with any errors encountered.
+
+.PARAMETER DirTree
+    Specifies the directory path from which empty directories should be deleted. If not provided, the script prompts the user to enter the directory path.
+
+.EXAMPLE
+    Delete empty directories and display details:
+    PS C:\> .\remove-empty-dirs.ps1 -DirTree "C:\Path\To\Directory"
+#>
+
+
+param([string]$DirTree = "")
 
 try {
 	if ($DirTree -eq "" ) { $DirTree = read-host "Enter directory path" }
