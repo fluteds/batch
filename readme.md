@@ -85,6 +85,8 @@ Scripts that don't fit into the other categories and don't really have a day to 
 - Restart Network Adapters - Restarts all network adapters known on the PC [(source)](https://github.com/fleschutz/PowerShell)
 - Remove Empty Directories - Removes all empty folders from a given location
 - Update Spicetify Marketplace - Updates Spicetify's marketplace
+- Delete Kindle Ads - Deletes ads on plugged in Kindle devices
+- Get Largest Files - Gets the largest files on your device and puts them all in a txt file
   
 ## Windows
 
