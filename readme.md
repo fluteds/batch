@@ -1,9 +1,6 @@
-## Scripts
+# Scripts
 
-Collection of batch files, Powershell and AutoHotKey scripts, some written by me, some written by others and modified for my own usage.
-
-> [!TIP]
-> If any of the scripts don't work, run the script again with Administrator rights.
+Collection of Batch files, Powershell and AutoHotKey scripts, some written by me, some written by others and modified for my own usage.
 
 ## AutoHotKey Scripts
 
@@ -91,7 +88,7 @@ Scripts that don't fit into the other categories and don't really have a day to 
 ## Windows
 
 > [!CAUTION]
-> Do not run any of the following without checking the code first - if you break something it is not my fault. A lot of these change something about the system and can cause issues. Please also check if the file has `win10` or `win11` at the start of each file name.
+> Do not run any of the following without checking the code first. If you break something it is not my fault. A lot of these change something about the system and can cause issues. Please also check if the file has `win10` or `win11` at the start of each file name.
 
 - Reset Windows Updates - Resets Windows Update Components
 - Clear Windows Update Cache - Clears Windows Update Cache
