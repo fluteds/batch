@@ -1,6 +1,6 @@
 ## Scripts
 
-Collection of batch files, Powershell and AutoHotKey scripts, some written by me, some written by others and modified for my own usage.
+Collection of Batch, CMD, Powershell, Bash and AutoHotKey scripts, some written by me, some written by others and modified for my own usage.
 
 > [!TIP]
 > If any of the scripts don't work, run the script again with Administrator rights.
@@ -33,7 +33,6 @@ Scripts that archive files and folders and other things.
 - YTDL - Downloads a video via yt-dlp with lots of customisable options
 - YTDL Basic - Paste a link and download videos via yt-dlp, no customising options, always downloads in the best quality
 - Download MP3 - Converts a video link to an mp3 file
-- Create TV Show Folders - Creates a series of folders in a set location based on your needs [(source)](https://old.reddit.com/r/sysadmin/comments/15ahcy/handy_batch_files/)
 
 ### Function Scripts
 
@@ -87,6 +86,13 @@ Scripts that don't fit into the other categories and don't really have a day to 
 - Update Spicetify Marketplace - Updates Spicetify's marketplace
 - Delete Kindle Ads - Deletes ads on plugged in Kindle devices
 - Get Largest Files - Gets the largest files on your device and puts them all in a txt file
+- Stop/Start SSH Tunnel - Starts/Stops a SSH tunnel for tilde.town using port 6667 for IRC
+
+## Bash
+
+- Finger SDF - Fetches user info and checks online status of all users
+- Stop/Start SSH Tunnel - Bash version of the Powershell - Starts/Stops a SSH tunnel for tilde.town using port 6667 for IRC
+- Kill Process - Lists and kills all `code-insiders-b` processes, then verifies if none remain
   
 ## Windows
 
@@ -115,7 +121,7 @@ Scripts that don't fit into the other categories and don't really have a day to 
 - Clear Pinned Taskbar - Unpins everything from the taskbar
 - Delete Search - Deletes all File Explorer search history - also removes pinned items from the file explorer
 
-## Run Batch Files on Startup
+## Run on Startup
 
 - Press the `⊞ Win`+`R` keyboard shortcut to launch the `Run` dialogue.
 
@@ -131,4 +137,4 @@ shell:startup
 shell:common startup
 ```
 
-- Click `OK` and paste your batch file or a shortcut to the file that needs to be run on startup.
+- Click `OK` and paste your file or a shortcut to the file.
