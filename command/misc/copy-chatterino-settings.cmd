@@ -36,22 +36,32 @@ goto start
 
 :fromDrive
 echo.
-echo Copying Chatterino Config from Google Drive to local disk.
-xcopy %drivePath% %chatterinoPath% /y /e
-xcopy %driveThemePath% %chatterinoThemesPath% /y /e
+echo Checking Google Drive path accessibility...
+if exist %drivePath% (
+    echo Copying Chatterino Config from Google Drive to local disk.
+    xcopy %drivePath% %chatterinoPath% /y /e
+    xcopy %driveThemePath% %chatterinoThemesPath% /y /e
+) else (
+    echo Error: Google Drive path %drivePath% is not accessible. Please check if Google Drive is running and synced.
+)
 goto end
 
 :fromLocal
 echo.
 echo Copying Chatterino Config from local disk to Google Drive.
-xcopy %chatterinoPath% %drivePath% /y /exclude:*.json.bkp-? /e
+xcopy %chatterinoPath% %drivePath% /y /e
 xcopy %chatterinoThemesPath% %driveThemePath% /y /e
 goto end
 
 :fromDriveThemes
 echo.
-echo Copying Chatterino Themes from Google Drive to local disk.
-xcopy %driveThemePath% %chatterinoThemesPath% /y /e
+echo Checking Google Drive themes path accessibility...
+if exist %driveThemePath% (
+    echo Copying Chatterino Themes from Google Drive to local disk.
+    xcopy %driveThemePath% %chatterinoThemesPath% /y /e
+) else (
+    echo Error: Google Drive themes path %driveThemePath% is not accessible. Please check if Google Drive is running and synced.
+)
 goto end
 
 :fromLocalThemes
@@ -77,11 +87,16 @@ echo.
 echo This action cannot be undone.
 echo To terminate, close the terminal window now.
 timeout /t 30
-cd %chatterinoPath%
+cd /d %chatterinoPath%
 echo Current directory: %cd%
 echo Backup files to be deleted:
-dir *.json.bkp-?
-del *.json.bkp-?
+dir *.json.bkp-? /b
+if not errorlevel 1 (
+    del *.json.bkp-?
+    echo Backup files deleted.
+) else (
+    echo No backup files found to delete.
+)
 goto end
 
 :end

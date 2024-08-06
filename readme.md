@@ -87,6 +87,7 @@ Scripts that don't fit into the other categories and don't really have a day to 
 - Delete Kindle Ads - Deletes ads on plugged in Kindle devices
 - Get Largest Files - Gets the largest files on your device and puts them all in a txt file
 - Stop/Start SSH Tunnel - Starts/Stops a SSH tunnel for tilde.town using port 6667 for IRC
+- Setup WSL and SSH - Sets up WSL and SSH for Windows
 
 ## Bash
 
