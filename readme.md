@@ -1,6 +1,6 @@
 ## Scripts
 
-Collection of Batch, CMD, Powershell, Bash and AutoHotKey scripts, some written by me, some written by others and modified for my own usage.
+Collection of Batch, Bash, CMD, Powershell, Bash and AutoHotKey scripts, some written by me, some written by others and modified for my own usage.
 
 > [!TIP]
 > If any of the scripts don't work, run the script again with Administrator rights.
@@ -33,6 +33,7 @@ Scripts that archive files and folders and other things.
 - YTDL - Downloads a video via yt-dlp with lots of customisable options
 - YTDL Basic - Paste a link and download videos via yt-dlp, no customising options, always downloads in the best quality
 - Download MP3 - Converts a video link to an mp3 file
+- Download Spotdl - Downloads a Spotify playlist and saves it to a defined folder
 
 ### Function Scripts
 
@@ -68,6 +69,7 @@ Scripts that don't fit into the other categories and don't really have a day to 
 - Connect Buds - Connects to Redmi AirDots 3 Pro x Genshin Impact
 - Connect Poco Buds - Connects to Poco Buds Pro x Genshin Impact
 - Connect AirPods - Connects to AirPod Pros
+- Connect Sony - Connects to Sony WH-1000XM4
 - Copy - Copies all batch, AHK and PS1 files to `C:/Batch-New` to simply `cd` and run the script like a bin folder
 
 ## Powershell Scripts
@@ -92,8 +94,9 @@ Scripts that don't fit into the other categories and don't really have a day to 
 ## Bash
 
 - Finger SDF - Fetches user info and checks online status of all users
-- Stop/Start SSH Tunnel - Bash version of the Powershell - Starts/Stops a SSH tunnel for tilde.town using port 6667 for IRC
+- Start SSH Tunnel - Bash version of the Powershell - Starts/Stops a SSH tunnel for tilde.town using port 6667 for IRC
 - Kill Process - Lists and kills all `code-insiders-b` processes, then verifies if none remain
+- Radio - Select and play a defined radio station via MPV
   
 ## Windows
 
