@@ -1,9 +1,7 @@
 audio/*
 /audio
-bash
 *.code-workspace
 *.csv
-docs.md
 *.exe
 *.mp3
 *.mp4
@@ -11,5 +9,4 @@ docs.md
 *.txt
 *.wav
 wip
-fn
 ssh_pid
