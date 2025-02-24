@@ -1,19 +1,18 @@
 ## Scripts
 
-Collection of Batch, Bash, CMD, Powershell, Bash and AutoHotKey scripts, some written by me, some written by others and modified for my own usage.
+Collection of Batch/CMD, Bash, Powershell and AutoHotKey scripts, some written by me, some written by others and modified for my own usage. Kept in a repo for archive purposes.
 
 > [!TIP]
-> If any of the scripts don't work, run the script again with Administrator rights.
+> If any of the scripts don't work, run again with Administrator/Sudo privlleges.
 
 ## AutoHotKey Scripts
 
-> [!NOTE]
-> You must have AutoHotKey installed to use these scripts.
+Can be used on any device as long as AutoHotKey is installed.
 
 - Control Volume - Changes the current volume using `Shift`+`Numkeys` `+` and `-`
 - Send To Trash - Empties the recycle bin using `Win`+`Del`
 - Suspend - Suspends the current running AHK scripts using `Win`+`Scrolllock` - must have the snippet inserted into any scripts you want to suspend in order to work
-- Search Clipboard - Uses copied text from the clipboard and searches it via DuckDuckGo - uses `Ctrl` `Shift`+`C`
+- Search Clipboard - Uses copied text from the clipboard and searches it via DuckDuckGo - uses `Ctrl`+`Shift`+`C`
 - Auto Correct - Auto corrects commonly mispelt words - use `Win`+`H` to add new words [(source)](http://www.biancolo.com)
 - Keep on Top - Keeps the current window on top of the other windows - uses `Ctrl`+`Space`
 - Norwegian Keybinds - Binds `Q/W/R` keys on a QWERTY keyboard to use Norwegian letters `Ø/Å/Æ` when pressed twice
@@ -24,7 +23,7 @@ Collection of Batch, Bash, CMD, Powershell, Bash and AutoHotKey scripts, some wr
 - Numpad - Binds numpad keys on the keyboard. Toggable with `Prt Sc`
 - Hide Window Titles - Hides the window titles. Toggable with `LWin`+`L/R Btn`
 
-## Terminal Scripts
+## Windows Terminal Scripts
 
 ### Archiving
 
@@ -37,7 +36,7 @@ Scripts that archive files and folders and other things.
 
 ### Function Scripts
 
-These are functional scripts, like quality of life. Used for PC maintenance and fixing errors.
+These are functional scripts used for PC maintenance and fixing errors.
 
 - List Dir Contents - Lists Current Directory Contents  
 - Sys Info - Lists Specs
@@ -70,11 +69,11 @@ Scripts that don't fit into the other categories and don't really have a day to 
 - Connect Poco Buds - Connects to Poco Buds Pro x Genshin Impact
 - Connect AirPods - Connects to AirPod Pros
 - Connect Sony - Connects to Sony WH-1000XM4
-- Copy - Copies all batch, AHK and PS1 files to `C:/Batch-New` to simply `cd` and run the script like a bin folder
+- Copy - Copies all batch, AHK and PS1 files to `C:/Batch-New` to simply `cd` and run the script like a "bin" folder
 
 ## Powershell Scripts
 
-- List News - Lists recent news from an RSS feed
+- List News - Lists recent news headlines from an RSS feed
 - Open Default Browser - Opens the default browser [(source)](https://github.com/fleschutz/PowerShell)
 - Open Flightradar24 - Opens Flightradar24 in the default browser
 - Open Lightning Map - Shows the live Lightning Map in the default browser
@@ -86,26 +85,61 @@ Scripts that don't fit into the other categories and don't really have a day to 
 - Restart Network Adapters - Restarts all network adapters known on the PC [(source)](https://github.com/fleschutz/PowerShell)
 - Remove Empty Directories - Removes all empty folders from a given location
 - Update Spicetify Marketplace - Updates Spicetify's marketplace
-- Delete Kindle Ads - Deletes ads on plugged in Kindle devices
+- Delete Kindle Ads - Deletes ads on plugged in Kindle devices (Use in offline mode to keep the ads clear)
 - Get Largest Files - Gets the largest files on your device and puts them all in a txt file
-- Stop/Start SSH Tunnel - Starts/Stops a SSH tunnel for tilde.town using port 6667 for IRC
+- Stop/Start SSH Tunnel - Starts/Stops a SSH tunnel for tilde.town using port 6667 for external IRC client usage
 - Setup WSL and SSH - Sets up WSL and SSH for Windows
 
-## Bash
+## Bash Shell Scripts
+
+For Linux or MacOS. Dotfiles are stored in another repo.
 
 - Finger SDF - Fetches user info and checks online status of all users
 - Start SSH Tunnel - Bash version of the Powershell - Starts/Stops a SSH tunnel for tilde.town using port 6667 for IRC
 - Kill Process - Lists and kills all `code-insiders-b` processes, then verifies if none remain
 - Radio - Select and play a defined radio station via MPV
+- Mute When Busy - Mutes the system when an event starts
+- Stop/Start SSH Tunnel - Starts/Stops a SSH tunnel for tilde.town using port 6667 for external IRC client usage
+- Up - Sends a specified file to [temp.sh](https://temp.sh) which are retained for 3 days
+- Airport - Assigns a new MAC address to the current wifi connection, useful for limited minutes allocation of Airport wifi etc
+- Script Setup - Makes a script executable and adds to path
+
+### Adding to PATH
+
+Or run `./script_setup` after making `./script_setup` executable.
+
+#### Manual adding to PATH
+
+```bash
+chmod +x script_name
+```
+
+- Export scripts to `$PATH`.
+
+```bash
+export PATH="$HOME/scripts:$PATH"
+```
+
+- Reload shell.
+
+```bash
+source ~/.zshrc # Or whatever shell you use
+```
+
+Or
+
+```bash
+exec zsh
+```
   
 ## Windows
 
 > [!CAUTION]
-> Do not run any of the following without checking the code first - if you break something it is not my fault. A lot of these change something about the system and can cause issues. Please also check if the file has `win10` or `win11` at the start of each file name.
+> Do not run any of the following without checking the files first - if you break something it is only your fault. A lot of these change something about the system and can cause issues. Also check if the file has `win10` or `win11` at the start of each file name as the OS type does usually matter.
 
 - Reset Windows Updates - Resets Windows Update Components
 - Clear Windows Update Cache - Clears Windows Update Cache
-- Advanced Explorer Settings -This changes more than a dozen File Explorer related settings on Windows 10 that turn of animations, enable menus, or turn off things like Toasts
+- Advanced Explorer Settings -This changes more than a dozen File Explorer related settings on Windows 10 that turn of animations, enable menus, or turn off things like toasts
 - Disable Automatic App Updates - Turns off automatic updates for Windows Store applications
 - Disable Automatic Windows Updates - Turns off automatic updates for the Windows 10 operating system itself
 - Disable Cortana - Rename the Cortana process `searchUIexe` to `searchUIbak` This will kill the process permanently and save your resources
@@ -123,9 +157,9 @@ Scripts that don't fit into the other categories and don't really have a day to 
 - Enable Standby instead of Hibernate - Switch powerstate from hibernation (slow) to standby
 - Get apps access for Administrator Account - Enable access to applications for the administrator account
 - Clear Pinned Taskbar - Unpins everything from the taskbar
-- Delete Search - Deletes all File Explorer search history - also removes pinned items from the file explorer
+- Delete Search - Deletes all File Explorer search history. This also removes pinned items from the file explorer
 
-## Run on Startup
+### Run on Startup
 
 - Press the `⊞ Win`+`R` keyboard shortcut to launch the `Run` dialogue.
 

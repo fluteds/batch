@@ -1,0 +1,82 @@
+#!/bin/bash
+
+set -e
+
+ME=$(basename "$0")
+
+os_type=$(uname -s)
+case $os_type in
+    Darwin*)
+        : ${interface:="en0"}  # Change to correct Wi-Fi interface
+    ;;
+    Linux*)
+        : ${interface:="eth0"}
+    ;;
+esac
+
+mac_addr=$(openssl rand -hex 6 | sed 's/\(..\)/\1:/g; s/./0/2; s/.$//')
+
+function check_root() {
+    if [[ $(/usr/bin/id -u) -ne 0 ]]; then
+        echo "Not running as root. Please use sudo."
+        exit 1
+    fi
+}
+
+function assign() {
+    check_root
+    os_type=$(uname -s)
+    case $os_type in
+        Darwin*)
+            sudo /System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources/airport -z
+            sudo ifconfig "$interface" ether "$mac_addr"
+        ;;
+        Linux*)
+            sudo ip link set dev "$interface" down
+            sudo ip link set dev "$interface" address "$mac_addr"
+            sudo ip link set dev "$interface" up
+            sudo systemctl restart NetworkManager  # Modern Linux distros
+        ;;
+    esac
+    echo "Network interface $interface assigned a new MAC address: $mac_addr"
+}
+
+function show() {
+    ifconfig "$interface"
+}
+
+function help() {
+  cat <<- __EOF__
+
+  DESCRIPTION:
+  This script changes the MAC address of your network interface to bypass time-based 
+  restrictions on public Wi-Fi networks.
+
+  USAGE:
+    $ME show      - Show active network interfaces.
+    $ME assign    - Assign a new randomly generated MAC address.
+
+__EOF__
+}
+
+if [ $# -eq 0 ]; then
+    echo -e "\nSyntax:\n\t${ME} [<command> ...]\n\
+\nCommands include:\
+\n\t help        displays help\
+\n\t assign      assign a new randomly generated mac address\
+\n\t show        show active network interfaces\
+\n"
+    exit 1
+fi
+
+while [ $# -gt 0 ]
+do
+    CMD=$1
+    time {
+      ${CMD}
+      shift
+    }
+    echo ""
+done
+
+exit 0

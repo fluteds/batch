@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# AppleScript to check for events in the Dayforce calendar and mute/unmute the volume
+eventDetected=$(osascript <<EOF
+tell application "Calendar"
+    set currentTime to (current date)
+    set calendarName to "Dayforce"
+    
+    -- Check for events in the next 24 hours
+    set calendarEvents to (every event of calendar calendarName whose start date is greater than currentTime and start date is less than currentTime + 1 * days)
+    
+    -- If any events exist in this window, mute the volume
+    if (count of calendarEvents) is greater than 0 then
+        -- Mute the volume if there is an event
+        do shell script "osascript -e 'set volume output muted true'"
+        return "muted"
+    else
+        -- Unmute the volume if no events are found
+        do shell script "osascript -e 'set volume output muted false'"
+        return "unmuted"
+    end if
+end tell
+EOF
+)
+
+# Log the result to console
+if [ "$eventDetected" == "muted" ]; then
+    echo 'Event detected! Volume has been muted.'
+elif [ "$eventDetected" == "unmuted" ]; then
+    echo 'No event detected. Volume has been unmuted.'
+else
+    echo 'Unexpected error.'
+fi
